@@ -1,0 +1,2 @@
+sau khi clone về hãy chọn npm install để tải thư viện đã chạy trước rồi hãy npm start
+khi làm đầu tiên thay env trong env bằng api bên BE đưa rồi sau đó sửa dần.Toàn bộ chức năng chính khi hiển thị là ở app.js khi npm start pj sẽ run file này đầu tiên và đó chính là những gì hiển thị ở trang chủ
