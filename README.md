@@ -1,2 +1,8 @@
-sau khi clone về hãy chọn npm install để tải thư viện đã chạy trước rồi hãy npm start
-khi làm đầu tiên thay env trong env bằng api bên BE đưa rồi sau đó sửa dần.Toàn bộ chức năng chính khi hiển thị là ở app.js khi npm start pj sẽ run file này đầu tiên và đó chính là những gì hiển thị ở trang chủ
+# React + Vite
+
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
