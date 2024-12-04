@@ -9,7 +9,6 @@ const Menuitems = [
     navlabel: true,
     subheader: 'Home',
   },
-
   {
     id: uniqueId(),
     title: 'Dashboard',
@@ -31,22 +30,6 @@ const Menuitems = [
     title: 'Shadow',
     icon: IconCopy,
     href: '/ui/shadow',
-  },
-  {
-    navlabel: true,
-    subheader: 'Auth',
-  },
-  {
-    id: uniqueId(),
-    title: 'Login',
-    icon: IconLogin,
-    href: '/auth/login',
-  },
-  {
-    id: uniqueId(),
-    title: 'Register',
-    icon: IconUserPlus,
-    href: '/auth/register',
   },
   {
     navlabel: true,

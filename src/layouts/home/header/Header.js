@@ -39,11 +39,15 @@ const Header = (props) => {
         </IconButton>  
 
 
-
         <Box flexGrow={1} />  
 
         <Stack spacing={1} direction="row" alignItems="center">  
-            <Profile />  
+        <Button variant="contained" color="primary" href="/auth/login">  
+                Log in  
+              </Button>  
+              <Button variant="contained" color="primary" href="/auth/register">  
+                Register  
+              </Button>  
         </Stack>  
       </ToolbarStyled>  
     </AppBarStyled>  
