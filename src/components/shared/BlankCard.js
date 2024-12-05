@@ -1,7 +1,7 @@
 import { Card } from '@mui/material';
-import React from 'react';
 import PropTypes from 'prop-types';
 
+// eslint-disable-next-line react/prop-types
 const BlankCard = ({ children, className }) => {
   return (
     <Card

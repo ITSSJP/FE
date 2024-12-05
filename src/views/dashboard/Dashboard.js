@@ -1,14 +1,14 @@
-import React from 'react';
+// import React from 'react';
 import { Grid, Box } from '@mui/material';
 import PageContainer from 'src/components/container/PageContainer';
 
 // components
-import SalesOverview from './components/SalesOverview';
-import YearlyBreakup from './components/YearlyBreakup';
-import RecentTransactions from './components/RecentTransactions';
-import ProductPerformance from './components/ProductPerformance';
-import Blog from './components/Blog';
-import MonthlyEarnings from './components/MonthlyEarnings';
+import SalesOverview from '../../components/dashboard/SalesOverview';
+import YearlyBreakup from '../../components/dashboard/YearlyBreakup';
+import RecentTransactions from '../../components/dashboard/RecentTransactions';
+import ProductPerformance from '../../components/dashboard/ProductPerformance';
+import Blog from '../../components/dashboard/Blog';
+import MonthlyEarnings from '../../components/dashboard/MonthlyEarnings';
 
 
 const Dashboard = () => {

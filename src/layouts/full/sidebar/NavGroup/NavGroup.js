@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 // mui imports
 import { ListSubheader, styled } from '@mui/material';
-
+//hiển thị nhóm trong sidebar
 const NavGroup = ({ item }) => {
   const ListSubheaderStyle = styled((props) => <ListSubheader disableSticky {...props} />)(
     ({ theme }) => ({
@@ -18,7 +18,7 @@ const NavGroup = ({ item }) => {
     <ListSubheaderStyle>{item.subheader}</ListSubheaderStyle>
   );
 };
-
+//kiểm tra dư liệu truyền vào
 NavGroup.propTypes = {
   item: PropTypes.object,
 };

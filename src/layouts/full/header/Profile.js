@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Avatar,
@@ -14,7 +14,7 @@ import {
 import { IconListCheck, IconMail, IconUser } from '@tabler/icons-react';
 
 import ProfileImg from 'src/assets/images/profile/user-1.jpg';
-
+//xử lý đóng mở profile
 const Profile = () => {
   const [anchorEl2, setAnchorEl2] = useState(null);
   const handleClick2 = (event) => {
@@ -65,19 +65,19 @@ const Profile = () => {
           },
         }}
       >
-        <MenuItem>
+        <MenuItem component={Link} to="/user-profile" onClick={handleClose2}>
           <ListItemIcon>
             <IconUser width={20} />
           </ListItemIcon>
           <ListItemText>My Profile</ListItemText>
         </MenuItem>
-        <MenuItem>
+        <MenuItem component={Link} to ="./My-account" onClick={handleClose2}>
           <ListItemIcon>
             <IconMail width={20} />
           </ListItemIcon>
           <ListItemText>My Account</ListItemText>
         </MenuItem>
-        <MenuItem>
+        <MenuItem component={Link} to ="./My-task" onClick={handleClose2}>
           <ListItemIcon>
             <IconListCheck width={20} />
           </ListItemIcon>

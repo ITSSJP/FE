@@ -35,6 +35,7 @@ const MSidebar = (props) => {
         {/* ------------------------------------------- */}
         <Drawer
           anchor="left"
+          // eslint-disable-next-line react/prop-types
           open={props.isSidebarOpen}
           variant="permanent"
           PaperProps={{
@@ -56,6 +57,7 @@ const MSidebar = (props) => {
             <Sidebar
               width={'270px'}
               collapsewidth="80px"
+              // eslint-disable-next-line react/prop-types
               open={props.isSidebarOpen}
               themeColor="#5d87ff"
               themeSecondaryColor="#49beff"
@@ -81,7 +83,9 @@ const MSidebar = (props) => {
   return (
     <Drawer
       anchor="left"
+      // eslint-disable-next-line react/prop-types
       open={props.isMobileSidebarOpen}
+      // eslint-disable-next-line react/prop-types
       onClose={props.onSidebarClose}
       variant="temporary"
       PaperProps={{

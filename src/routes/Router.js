@@ -1,4 +1,4 @@
-import React, { lazy } from 'react';
+import  { lazy } from 'react';
 import { Navigate } from 'react-router-dom';
 import Loadable from '../layouts/full/shared/loadable/Loadable';
 
@@ -8,6 +8,9 @@ const BlankLayout = Loadable(lazy(() => import('../layouts/blank/BlankLayout')))
 
 /* ****Pages***** */
 const Dashboard = Loadable(lazy(() => import('../views/dashboard/Dashboard')))
+
+
+
 const SamplePage = Loadable(lazy(() => import('../views/sample-page/SamplePage')))
 const Icons = Loadable(lazy(() => import('../views/icons/Icons')))
 const TypographyPage = Loadable(lazy(() => import('../views/utilities/TypographyPage')))
@@ -15,6 +18,13 @@ const Shadow = Loadable(lazy(() => import('../views/utilities/Shadow')))
 const Error = Loadable(lazy(() => import('../views/authentication/Error')));
 const Register = Loadable(lazy(() => import('../views/authentication/Register')));
 const Login = Loadable(lazy(() => import('../views/authentication/Login')));
+
+/* ****New Pages for Home, Class Management, and Lessons***** */
+const HomePage = Loadable(lazy(() => import('../views/Home/HomePage')));
+const ClassManagementPage = Loadable(lazy(() => import('../views/ClassManagement/ClassManagement')));
+const LessonsPage = Loadable(lazy(() => import('../views/LessonsPage/LessonsPage')));
+const DictionaryPage = Loadable(lazy(() => import('../views/Dictionary/Dictionary')));
+
 
 const Router = [
   {
@@ -27,6 +37,15 @@ const Router = [
       { path: '/icons', exact: true, element: <Icons /> },
       { path: '/ui/typography', exact: true, element: <TypographyPage /> },
       { path: '/ui/shadow', exact: true, element: <Shadow /> },
+      { path: '*', element: <Navigate to="/auth/404" /> },
+      { path: '/home', exact: true, element: <HomePage /> }, // Home
+      { path: '/class-management', exact: true, element: <ClassManagementPage /> }, // Quản lý lớp học
+      { path: '/lessons', exact: true, element: <LessonsPage /> }, // Bài học
+      { path: '/dictionary', exact: true, element: <DictionaryPage /> },
+
+      // eslint-disable-next-line react/jsx-no-undef
+
+
       { path: '*', element: <Navigate to="/auth/404" /> },
     ],
   },
