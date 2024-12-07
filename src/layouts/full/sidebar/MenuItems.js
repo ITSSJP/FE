@@ -52,9 +52,9 @@ const Menuitems = [
   },
   {
     id: uniqueId(),
-    title:'Dịch',
+    title:'Test',
     icon: SiRoamresearch,
-    href:'/translate'
+    href:'/test'
   },  {
     id: uniqueId(),
     title:'Chi tiết lớp học',
