@@ -1,8 +1,9 @@
-/* eslint-disable react/prop-types */
 import { Box, Grid, Typography, Button } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const ClassList = ({ classes }) => {
+  const navigate = useNavigate();
+
   return (
     <Grid container spacing={2}>
       {classes.map((classItem) => (
@@ -12,15 +13,14 @@ const ClassList = ({ classes }) => {
             <Typography variant="body2" color="textSecondary">
               {classItem.members} thành viên
             </Typography>
-            <Link to={`/class/${classItem.id}`}>
-              <Button 
-                variant="contained" 
-                color="primary" 
-                sx={{ marginTop: 2 }}
-              >
-                Xem Bài Học
-              </Button>
-            </Link>
+            <Button
+              variant="contained"
+              color="primary"
+              sx={{ marginTop: 2 }}
+              onClick={() => navigate(`/class/${classItem.id}`)}
+            >
+              Xem Bài Học
+            </Button>
           </Box>
         </Grid>
       ))}
