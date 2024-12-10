@@ -25,6 +25,7 @@ const ClassManagementPage = Loadable(lazy(() => import('../views/ClassManagement
 const LessonsPage = Loadable(lazy(() => import('../views/LessonsPage/LessonsPage')));
 const DictionaryPage = Loadable(lazy(() => import('../views/Dictionary/Dictionary')));
 const ClassDetailPage = Loadable(lazy(() => import('../components/classManagement/ClassDetails')));
+const TranslatePage = Loadable(lazy(() => import('../views/Translate/Translate')));
 
 
 const Router = [
@@ -43,6 +44,7 @@ const Router = [
       { path: '/class-management', exact: true, element: <ClassManagementPage /> }, // Quản lý lớp học
       { path: '/lessons', exact: true, element: <LessonsPage /> }, // Bài học
       { path: '/dictionary', exact: true, element: <DictionaryPage /> },
+      { path: '/translate', exact: true, element: <TranslatePage /> },
       { path: '/class/:classId', exact: true, element: <ClassDetailPage /> }, // Trang chi tiết lớp
 
 
