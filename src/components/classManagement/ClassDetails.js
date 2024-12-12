@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { Box, Grid, Typography,Container, Button, Paper,TextField, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
+import { Box, Grid, Typography, Button, Paper,TextField, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import LessonList from '../../components/lesson/LessonList';
 
 
@@ -134,10 +134,8 @@ const ClassDetail = () => {
               <Table>
                 <TableHead>
                   <TableRow>
-                    <TableCell>Họ tên</TableCell>
-                    <TableCell>Tuổi</TableCell>
-                    <TableCell>SĐT</TableCell>
-                    <TableCell>Email</TableCell>
+                    <TableCell>Username</TableCell>
+
                   </TableRow>
                 </TableHead>
                 <TableBody>
@@ -145,11 +143,11 @@ const ClassDetail = () => {
                   <TableRow>
                     <TableCell>
                       <TextField
-                        label="Tên"
+                        label="Username"
                         fullWidth
                       />
                     </TableCell>
-                    <TableCell>
+                    {/* <TableCell>
                       <TextField
                         label="Tuổi"
                         fullWidth
@@ -166,7 +164,7 @@ const ClassDetail = () => {
                         label="Email"
                         fullWidth
                       />
-                    </TableCell>
+                    </TableCell> */}
                   </TableRow>
                 </TableBody>
               </Table>
@@ -175,6 +173,9 @@ const ClassDetail = () => {
             <Box sx={{ marginTop: 3 }}>
               <Button variant="outlined" onClick={() => document.getElementById('addStudentForm').style.display = 'none'}>
                 Hủy
+              </Button>
+              <Button variant="outlined" onClick={() => document.getElementById('addStudentForm').style.display = 'none'}>
+                Thêm sinh viên
               </Button>
             </Box>
           </Box>
