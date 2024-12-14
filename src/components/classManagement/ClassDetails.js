@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
-import { Box, Grid, Typography, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
+import { Box, Grid, Typography, Button, Paper,TextField, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import LessonList from '../../components/lesson/LessonList';
+
 
 const ClassDetail = () => {
   const { classId } = useParams(); // Lấy ID lớp từ URL
@@ -114,19 +115,80 @@ const ClassDetail = () => {
 
   const classInfo = classData[classId];
 
+  
   return (
     <Box sx={{ padding: 3 }}>
       <Grid container spacing={3}>
         <Grid item xs={12}>
           <Typography variant="h4">{classInfo.name}</Typography>
           <Typography variant="body1">Số lượng thành viên: {classInfo.members}</Typography>
+          {/* Nút thêm sinh viên */}
+          <Box sx={{ marginTop: 3 }}>
+            <Button variant="contained" onClick={() => document.getElementById('addStudentForm').style.display = 'block'}>
+              Thêm sinh viên
+            </Button>
+            {/* Hiển thị form thêm sinh viên khi ấn "Thêm sinh viên" */}
+          <Box sx={{ marginTop: 3 }} id="addStudentForm" style={{ display: 'none' }}>
+            <Typography variant="h6">Nhập thông tin sinh viên</Typography>
+            <TableContainer component={Paper}>
+              <Table>
+                <TableHead>
+                  <TableRow>
+                    <TableCell>Username</TableCell>
+
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {/* Chỉ hiển thị một dòng trống để nhập thông tin */}
+                  <TableRow>
+                    <TableCell>
+                      <TextField
+                        label="Username"
+                        fullWidth
+                      />
+                    </TableCell>
+                    {/* <TableCell>
+                      <TextField
+                        label="Tuổi"
+                        fullWidth
+                      />
+                    </TableCell>
+                    <TableCell>
+                      <TextField
+                        label="Số điện thoại"
+                        fullWidth
+                      />
+                    </TableCell>
+                    <TableCell>
+                      <TextField
+                        label="Email"
+                        fullWidth
+                      />
+                    </TableCell> */}
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </TableContainer>
+            {/* Nút Cancel để quay lại màn hình cũ */}
+            <Box sx={{ marginTop: 3 }}>
+              <Button variant="outlined" onClick={() => document.getElementById('addStudentForm').style.display = 'none'}>
+                Hủy
+              </Button>
+              <Button variant="outlined" onClick={() => document.getElementById('addStudentForm').style.display = 'none'}>
+                Thêm sinh viên
+              </Button>
+            </Box>
+          </Box>
+          </Box>
         </Grid>
         <Grid item xs={12} md={9}>
           <Box sx={{ marginTop: 3 }}>
+            {/* Hiển thị danh sách bài học */}
             <LessonList lessons={classInfo.lessons} />
           </Box>
 
           <Box sx={{ marginTop: 3 }}>
+            {/* Hiển thị danh sách thành viên */}
             <Typography variant="h6">Danh sách thành viên</Typography>
             <TableContainer component={Paper}>
               <Table>
@@ -151,7 +213,12 @@ const ClassDetail = () => {
               </Table>
             </TableContainer>
           </Box>
+
+          
+
+          
         </Grid>
+
         <Grid item xs={12} md={3}>
           <Paper elevation={3} sx={{ padding: 2 }}>
             <Typography variant="h6">Thông tin thêm</Typography>

@@ -79,18 +79,18 @@ const SalesOverview = () => {
     };
     const seriescolumnchart = [
         {
-            name: 'Eanings this month',
+            name: 'Số từ đã học',
             data: [355, 390, 300, 350, 390, 180, 355, 390],
         },
         {
-            name: 'Expense this month',
+            name: 'Sô ngữ pháp đã học',
             data: [280, 250, 325, 215, 250, 310, 280, 250],
         },
     ];
 
     return (
 
-        <DashboardCard title="Sales Overview" action={
+        <DashboardCard title="Thành tích" action={
             <Select
                 labelId="month-dd"
                 id="month-dd"
