@@ -2,9 +2,9 @@ import { Card, CardContent, Typography, List, ListItem, ListItemText } from '@mu
 
 const RecentActivities = () => {
   const activities = [
-    { id: 1, description: 'Bạn vừa hoàn thành bài học "Cách sử dụng React Hooks".', time: '10 phút trước' },
-    { id: 2, description: 'Lớp học "Lập trình cơ bản" đã được cập nhật.', time: '1 giờ trước' },
-    { id: 3, description: 'Bạn vừa tham gia lớp "React nâng cao".', time: 'Hôm qua' },
+    { id: 1, description: 'Bạn vừa hoàn thành bài học Kanji số 1.', time: '10 phút trước' },
+    { id: 2, description: 'Lớp học "ABC" đã được cập nhật.', time: '1 giờ trước' },
+    { id: 3, description: 'Bạn vừa tham gia lớp "ABC".', time: 'Hôm qua' },
   ];
 
   return (

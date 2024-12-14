@@ -52,7 +52,7 @@ const MonthlyEarnings = () => {
 
   return (
     <DashboardCard
-      title="rank của bạn"
+      title="Coin của bạn"
       action={
         <Fab color="secondary" size="medium" sx={{color: '#ffffff'}}>
           <IconCurrencyDollar width={24} />

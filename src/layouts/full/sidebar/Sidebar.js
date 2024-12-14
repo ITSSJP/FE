@@ -4,6 +4,7 @@ import { Upgrade } from './Updrade';
 import { Sidebar, Logo } from 'react-mui-sidebar';
 import logo from '../../../assets/images/logos/dark1-logo.svg'
 
+//menu side bar
 const MSidebar = (props) => {
 
   const lgUp = useMediaQuery((theme) => theme.breakpoints.up("lg"));
