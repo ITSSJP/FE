@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizlet Style Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-top: 50px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question h3 {
+            margin: 0 0 10px;
+        }
+        .options {
+            list-style: none;
+            padding: 0;
+        }
+        .options li {
+            margin-bottom: 10px;
+        }
+        .options input {
+            margin-right: 10px;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            background: #007BFF;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Quizlet Style Quiz</h1>
+        <form id="quiz-form">
+            <div class="question">
+                <h3>1. What is the capital of France?</h3>
+                <ul class="options">
+                    <li><label><input type="radio" name="q1" value="a"> A. Berlin</label></li>
+                    <li><label><input type="radio" name="q1" value="b"> B. Madrid</label></li>
+                    <li><label><input type="radio" name="q1" value="c"> C. Paris</label></li>
+                    <li><label><input type="radio" name="q1" value="d"> D. Rome</label></li>
+                </ul>
+            </div>
+
+            <div class="question">
+                <h3>2. Who wrote "To Kill a Mockingbird"?</h3>
+                <ul class="options">
+                    <li><label><input type="radio" name="q2" value="a"> A. Harper Lee</label></li>
+                    <li><label><input type="radio" name="q2" value="b"> B. Mark Twain</label></li>
+                    <li><label><input type="radio" name="q2" value="c"> C. J.K. Rowling</label></li>
+                    <li><label><input type="radio" name="q2" value="d"> D. Ernest Hemingway</label></li>
+                </ul>
+            </div>
+
+            <div class="question">
+                <h3>3. What is the largest planet in our solar system?</h3>
+                <ul class="options">
+                    <li><label><input type="radio" name="q3" value="a"> A. Earth</label></li>
+                    <li><label><input type="radio" name="q3" value="b"> B. Mars</label></li>
+                    <li><label><input type="radio" name="q3" value="c"> C. Jupiter</label></li>
+                    <li><label><input type="radio" name="q3" value="d"> D. Venus</label></li>
+                </ul>
+            </div>
+
+            <button type="button" class="btn" onclick="submitQuiz()">Submit Quiz</button>
+        </form>
+    </div>
+
+    <script>
+        function submitQuiz() {
+            const form = document.getElementById('quiz-form');
+            const formData = new FormData(form);
+            const answers = {
+                q1: 'c',
+                q2: 'a',
+                q3: 'c'
+            };
+
+            let score = 0;
+            for (const [question, correctAnswer] of Object.entries(answers)) {
+                if (formData.get(question) === correctAnswer) {
+                    score++;
+                }
+            }
+
+            alert(`Your score is ${score}/${Object.keys(answers).length}`);
+        }
+    </script>
+</body>
+</html>

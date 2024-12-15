@@ -133,6 +133,35 @@
       }
     }
         /* Bắt đầu từ đây để thêm css của các trang layout mới */
+        #add-vocab-btn {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #add-vocab-btn h1 {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #343a40;
+        }
+
+        .lesson-item {
+            margin-bottom: 10px;
+        }
+
+        .add-button {
+            display: block;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .submit-button {
+            display: block;
+            width: 100%;
+        }
 
   </style>
 </head>
@@ -232,6 +261,21 @@
 
     <div class="container mt-4" id="main-container">
       <!-- Tiêu đề chính -->
+      <div class="container" id="add-vocab-btn">
+        <h1>Create New Japanese Lesson</h1>
+        <form id="lessonForm">
+            <div id="lessonItems" class="mb-3">
+                <div class="lesson-item d-flex align-items-center">
+                    <input type="text" class="form-control me-2" name="word[]" placeholder="Japanese Word (例: 猫)" required />
+                    <input type="text" class="form-control me-2" name="reading[]" placeholder="Reading (例: ねこ)" required />
+                    <input type="text" class="form-control me-2" name="meaning[]" placeholder="Meaning (例: Cat)" required />
+                    <button type="button" class="btn btn-danger" onclick="removeItem(this)">Remove</button>
+                </div>
+            </div>
+            <button type="button" class="add-button btn btn-success">Add Another Term</button>
+            <button type="submit" class="submit-button btn btn-primary">Save Lesson</button>
+        </form>
+    </div>
 
 
 
