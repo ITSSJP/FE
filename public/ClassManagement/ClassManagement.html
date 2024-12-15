@@ -113,9 +113,7 @@
 
     #pronounce-btn {
       font-size: 0.8rem;
-      /* Điều chỉnh kích thước nút */
       cursor: pointer;
-      /* Làm cho nút có cảm giác "có thể nhấp" */
     }
 
     /* Mobile Sidebar Toggle */
@@ -132,8 +130,23 @@
         margin-left: 0;
       }
     }
-        /* Bắt đầu từ đây để thêm css của các trang layout mới */
+    /* Bắt đầu từ đây để thêm css của các trang layout mới */
+    .progress-container {
+    margin: 10px 0;
+  }
 
+  .progress-bar-custom {
+    height: 8px;
+    border-radius: 5px;
+    background: linear-gradient(to right, #2563eb, #4f46e5);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  .progress-text {
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: right;
+  }
   </style>
 </head>
 
@@ -161,6 +174,7 @@
       <div>
         <div class="sidebar-nav-group-header">Quản lý</div>
         <li class="nav-item">
+          <!-- sửa link ở đây nè -->
           <a href="/class-management" class="sidebar-nav-link">
             <i class="bi bi-building me-2"></i> Quản lý lớp học
           </a>
@@ -232,6 +246,45 @@
 
     <div class="container mt-4">
       <!-- Tiêu đề chính -->
+      <div class="container mt-5">
+        <h2 class="mb-4">Quản lý lớp học</h2>
+  
+        <!-- Class 1 -->
+        <div class="card p-3 mb-3 shadow-sm">
+          <div class="course-card">
+            <div>
+              <h5>Lớp học N1</h5>
+              <p class="text-muted mb-0">35 thành viên</p>
+            </div>
+            <div class="progress-container" id="progress1"></div>
+            <a href="./ClassDetail.html" class="btn btn-primary">Xem Bài Học</a>
+          </div>
+        </div>
+  
+        <!-- Class 2 -->
+        <div class="card p-3 mb-3 shadow-sm">
+          <div class="course-card">
+            <div>
+              <h5>Lớp học N2</h5>
+              <p class="text-muted mb-0">40 thành viên</p>
+            </div>
+            <div class="progress-container" id="progress2"></div>
+            <a href="./ClassDetail.html" class="btn btn-primary">Xem Bài Học</a>
+          </div>
+        </div>
+  
+        <!-- Class 3 -->
+        <div class="card p-3 mb-3 shadow-sm">
+          <div class="course-card">
+            <div>
+              <h5>Lớp học N3</h5>
+              <p class="text-muted mb-0">28 thành viên</p>
+            </div>
+            <div class="progress-container" id="progress3"></div>
+            <a href="./ClassDetail.html" class="btn btn-primary">Xem Bài Học</a>
+          </div>
+        </div>
+      </div>
 
 
 
@@ -251,6 +304,32 @@
       alert("Logging out...");
       window.location.href = "/auth/login";
     }
+  </script>
+  <script>
+    // Tùy chỉnh dữ liệu thanh tiến trình
+    const progressData = [
+      { id: "progress1", value: 60, total: 100 },
+      { id: "progress2", value: 80, total: 100 },
+      { id: "progress3", value: 40, total: 100 }
+    ];
+  
+    function renderProgressBar() {
+      progressData.forEach((progress) => {
+        const progressElement = document.getElementById(progress.id);
+        const percent = (progress.value / progress.total) * 100;
+  
+        // Render thanh tiến trình
+        progressElement.innerHTML = `
+          <div class="progress bg-light">
+            <div class="progress-bar-custom" style="width: ${percent}%;" role="progressbar"></div>
+          </div>
+          <div class="progress-text">${percent.toFixed(0)}% hoàn thành</div>
+        `;
+      });
+    }
+  
+    // Gọi hàm để hiển thị thanh tiến trình
+    renderProgressBar();
   </script>
 
 </body>
