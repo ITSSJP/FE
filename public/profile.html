@@ -132,37 +132,6 @@
         margin-left: 0;
       }
     }
-        /* Bắt đầu từ đây để thêm css của các trang layout mới */
-        #add-vocab-btn {
-            margin-top: 50px;
-            padding: 20px;
-            background-color: #f8f9fa;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        #add-vocab-btn h1 {
-            text-align: center;
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: #343a40;
-        }
-
-        .lesson-item {
-            margin-bottom: 10px;
-        }
-
-        .add-button {
-            display: block;
-            width: 100%;
-            margin-bottom: 15px;
-        }
-
-        .submit-button {
-            display: block;
-            width: 100%;
-        }
-
   </style>
 </head>
 
@@ -181,19 +150,19 @@
             <i class="bi bi-house-door-fill me-2"></i> Home
           </a>
         </li>
-        <!-- <li class="nav-item">
+        <li class="nav-item">
           <a href="/dashboard" class="sidebar-nav-link">
             <i class="bi bi-speedometer2 me-2"></i> Dashboard
           </a>
-        </li> -->
+        </li>
       </div>
       <div>
         <div class="sidebar-nav-group-header">Quản lý</div>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a href="/class-management" class="sidebar-nav-link">
             <i class="bi bi-building me-2"></i> Quản lý lớp học
           </a>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a href="/dictionary" class="sidebar-nav-link">
             <i class="bi bi-book me-2"></i> Từ Điển
@@ -222,81 +191,96 @@
             <i class="bi bi-journal me-2"></i> Bài học
           </a>
         </li>
+		<li class="nav-item">
+		        <a href="/profile" class="sidebar-nav-link active">
+		          <i class="bi bi-person-circle me-2"></i> Profile
+		        </a>
+		</li>
       </div> -->
     </ul>
   </div>
 
   <!-- Main Content -->
-  <div class="main-content-container">
-    <!-- Header -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm sticky-top">
-      <div class="container-fluid">
-        <!-- Sidebar Toggle for Mobile -->
-        <button class="navbar-toggler" type="button" id="menuToggle">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+    <div class="main-content-container">
+      <!-- Header -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm sticky-top">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" id="menuToggle">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="header-navbar-brand navbar-brand" href="#">Kagura</a>
+          <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fas fa-bell"></i></a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" data-bs-toggle="dropdown">
+                  <img src="https://via.placeholder.com/40" alt="Profile" class="rounded-circle" width="40" height="40" />
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+                  <li><a class="dropdown-item" href="#">Profile</a></li>
+                  <li><a class="dropdown-item text-danger" href="#" onclick="logout()">Logout</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
 
-        <!-- Logo -->
-        <a class="header-navbar-brand navbar-brand" href="#">Kagura</a>
-
-        <!-- Navbar Content -->
-        <div class="collapse navbar-collapse" id="navbarContent">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#"><i class="fas fa-bell"></i></a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" data-bs-toggle="dropdown">
-                <img src="https://via.placeholder.com/40" alt="Profile" class="rounded-circle" width="40" height="40" />
-              </a>
-              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
-                <li><a class="dropdown-item" href="#">Profile</a></li>
-                <li><a class="dropdown-item text-danger" href="#" onclick="logout()">Logout</a></li>
-              </ul>
-            </li>
-          </ul>
+      <!-- Profile Section -->
+      <div class="container mt-4">
+        <div class="profile-header">
+          <h2>User Profile</h2>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-8">
+            <div class="card profile-card">
+              <div class="card-body">
+                <h5 class="card-title">Personal Information</h5>
+                <form>
+                  <div class="mb-3">
+                    <label for="name" class="form-label">Full Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                  </div>
+                  <div class="mb-3">
+                    <label for="age" class="form-label">Age</label>
+                    <input type="number" class="form-control" id="age" placeholder="Enter your age">
+                  </div>
+                  <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                  </div>
+                  <div class="mb-3">
+                    <label for="phone" class="form-label">Phone Number</label>
+                    <input type="text" class="form-control" id="phone" placeholder="Enter your phone number">
+                  </div>
+                  <div class="mb-3">
+                    <label for="bio" class="form-label">Bio</label>
+                    <textarea class="form-control" id="bio" rows="3" placeholder="Tell us something about yourself..."></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Save</button>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </nav>
-
-    <div class="container mt-4" id="main-container">
-      <!-- Tiêu đề chính -->
-      <div class="container" id="add-vocab-btn">
-        <h1>Create New Japanese Lesson</h1>
-        <form id="lessonForm">
-            <div id="lessonItems" class="mb-3">
-                <div class="lesson-item d-flex align-items-center">
-                    <input type="text" class="form-control me-2" name="word[]" placeholder="Japanese Word (例: 猫)" required />
-                    <input type="text" class="form-control me-2" name="reading[]" placeholder="Reading (例: ねこ)" required />
-                    <input type="text" class="form-control me-2" name="meaning[]" placeholder="Meaning (例: Cat)" required />
-                    <button type="button" class="btn btn-danger" onclick="removeItem(this)">Remove</button>
-                </div>
-            </div>
-            <button type="button" class="add-button btn btn-success">Add Another Term</button>
-            <button type="submit" class="submit-button btn btn-primary">Save Lesson</button>
-        </form>
     </div>
 
+    <!-- Bootstrap Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      document.getElementById("menuToggle").addEventListener("click", function () {
+        document.getElementById("sidebar").classList.toggle("active");
+      });
 
+      function logout() {
+        alert("Logging out...");
+        window.location.href = "/auth/login";
+      }
+    </script>
 
-    </div>
+  </body>
 
-  </div>
-
-  <!-- Bootstrap Bundle JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    // Toggle Sidebar for Mobile
-    document.getElementById("menuToggle").addEventListener("click", function () {
-      document.getElementById("sidebar").classList.toggle("active");
-    });
-
-    function logout() {
-      alert("Logging out...");
-      window.location.href = "/auth/login";
-    }
-  </script>
-
-</body>
-
-</html>
+  </html>

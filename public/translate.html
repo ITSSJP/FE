@@ -133,6 +133,51 @@
       }
     }
         /* Bắt đầu từ đây để thêm css của các trang layout mới */
+        .translator-container {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            max-width: 700px;
+        }
+
+        .translator-container h2 {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .btn-translate {
+            background-color: #0d6efd;
+            color: white;
+        }
+
+        .btn-translate:hover {
+            background-color: #084298;
+            color: white;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        .select-lang {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .swap-icon {
+            cursor: pointer;
+            font-size: 24px;
+            margin: 0 10px;
+            color: #0d6efd;
+        }
+
+        .swap-icon:hover {
+            color: #084298;
+        }
 
   </style>
 </head>
@@ -152,11 +197,11 @@
             <i class="bi bi-house-door-fill me-2"></i> Home
           </a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a href="/dashboard" class="sidebar-nav-link">
             <i class="bi bi-speedometer2 me-2"></i> Dashboard
           </a>
-        </li>
+        </li> -->
       </div>
       <div>
         <div class="sidebar-nav-group-header">Quản lý</div>
@@ -176,7 +221,7 @@
           </a>
         </li>
       </div>
-      <div>
+      <!-- <div>
         <div class="sidebar-nav-group-header">Navigate</div>
         <li class="nav-item">
           <a href="/test" class="sidebar-nav-link">
@@ -193,7 +238,7 @@
             <i class="bi bi-journal me-2"></i> Bài học
           </a>
         </li>
-      </div>
+      </div> -->
     </ul>
   </div>
 
@@ -233,7 +278,40 @@
     <div class="container mt-4" id="main-container">
       <!-- Tiêu đề chính -->
 
-
+      <div class="translator-container">
+        <h2>Vietnamese - Japanese Translator</h2>
+        <!-- Chọn ngôn ngữ -->
+        <div class="select-lang mb-3">
+            <div>
+                <label for="from-lang" class="form-label">From:</label>
+                <select id="from-lang" class="form-select">
+                    <option value="vn">Vietnamese</option>
+                    <option value="jp">Japanese</option>
+                </select>
+            </div>
+            <span class="swap-icon" onclick="swapLanguage()">&#8596;</span>
+            <div>
+                <label for="to-lang" class="form-label">To:</label>
+                <select id="to-lang" class="form-select">
+                    <option value="jp">Japanese</option>
+                    <option value="vn">Vietnamese</option>
+                </select>
+            </div>
+        </div>
+        <!-- Nhập văn bản -->
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <textarea id="input-text" class="form-control" rows="5" placeholder="Enter text here..."></textarea>
+            </div>
+            <div class="col-md-6">
+                <textarea id="output-text" class="form-control" rows="5" placeholder="Translation will appear here..." readonly></textarea>
+            </div>
+        </div>
+        <!-- Nút dịch -->
+        <div class="text-center">
+            <button class="btn btn-translate px-5" onclick="translateText()">Translate</button>
+        </div>
+    </div>
 
     </div>
 
