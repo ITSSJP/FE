@@ -57,7 +57,8 @@
       align-items: center;
       transition: all 0.3s ease-in-out;
       border-radius: 5px;
-      text-decoration: none; /* Bỏ gạch chân */
+      text-decoration: none;
+      /* Bỏ gạch chân */
 
 
     }
@@ -72,7 +73,8 @@
       color: #f8fafc;
       transform: translateX(5px);
       box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
-      text-decoration: none; /* Bỏ gạch chân */
+      text-decoration: none;
+      /* Bỏ gạch chân */
 
     }
 
@@ -132,37 +134,37 @@
         margin-left: 0;
       }
     }
-        /* Bắt đầu từ đây để thêm css của các trang layout mới */
-        #add-vocab-btn {
-            margin-top: 50px;
-            padding: 20px;
-            background-color: #f8f9fa;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
 
-        #add-vocab-btn h1 {
-            text-align: center;
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: #343a40;
-        }
+    /* Bắt đầu từ đây để thêm css của các trang layout mới */
+    #add-vocab-btn {
+      margin-top: 50px;
+      padding: 20px;
+      background-color: #f8f9fa;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
 
-        .lesson-item {
-            margin-bottom: 10px;
-        }
+    #add-vocab-btn h1 {
+      text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: #343a40;
+    }
 
-        .add-button {
-            display: block;
-            width: 100%;
-            margin-bottom: 15px;
-        }
+    .lesson-item {
+      margin-bottom: 10px;
+    }
 
-        .submit-button {
-            display: block;
-            width: 100%;
-        }
+    .add-button {
+      display: block;
+      width: 100%;
+      margin-bottom: 15px;
+    }
 
+    .submit-button {
+      display: block;
+      width: 100%;
+    }
   </style>
 </head>
 
@@ -264,62 +266,63 @@
       <div class="container" id="add-vocab-btn">
         <h1>Create New Japanese Lesson</h1>
         <form id="lessonForm">
-            <div id="lessonItems" class="mb-3">
-                <div class="lesson-item d-flex align-items-center">
-                    <input type="text" class="form-control me-2" name="question[]" placeholder="Japanese Question (例: 猫)" required />
-                    <input type="text" class="form-control me-2" name="romaji[]" placeholder="Romaji (例: ねこ)" required />
-                    <input type="text" class="form-control me-2" name="answer[]" placeholder="Answer (例: Cat)" required />
-                    <button type="button" class="btn btn-danger" onclick="removeItem(this)">Remove</button>
-                </div>
+          <div id="lessonItems" class="mb-3">
+            <div class="lesson-item d-flex align-items-center">
+              <input type="text" class="form-control me-2" name="question[]" placeholder="Japanese Question (例: 猫)"
+                required />
+              <input type="text" class="form-control me-2" name="romaji[]" placeholder="Romaji (例: ねこ)" required />
+              <input type="text" class="form-control me-2" name="answer[]" placeholder="Answer (例: Cat)" required />
+              <button type="button" class="btn btn-danger" onclick="removeItem(this)">Remove</button>
             </div>
-            <button type="button" class="add-button btn btn-success">Add Another Term</button>
-            <button type="submit" class="submit-button btn btn-primary">Save Lesson</button>
+          </div>
+          <button type="button" class="add-button btn btn-success">Add Another Term</button>
+          <button type="submit" class="submit-button btn btn-primary">Save Lesson</button>
         </form>
         <script>
           document.addEventListener("DOMContentLoaded", function () {
             const lessonForm = document.getElementById("lessonForm");
             const lessonItems = document.getElementById("lessonItems");
             const addButton = document.querySelector(".add-button");
-        
-//add từ 
+
+            //add từ 
             addButton.addEventListener("click", function () {
               const newItem = document.createElement("div");
               newItem.className = "lesson-item d-flex align-items-center";
-        
+
               newItem.innerHTML = `
                 <input type="text" class="form-control me-2" name="question[]" placeholder="Japanese Question (\u4F8B: 猫)" required />
                 <input type="text" class="form-control me-2" name="romaji[]" placeholder="Romaji (\u4F8B: ねこ)" required />
                 <input type="text" class="form-control me-2" name="answer[]" placeholder="Answer (\u4F8B: Cat)" required />
                 <button type="button" class="btn btn-danger" onclick="removeItem(this)">Remove</button>
               `;
-        
+
               lessonItems.appendChild(newItem);
             });
-        
+
             window.removeItem = function (button) {
               const itemToRemove = button.parentElement;
               lessonItems.removeChild(itemToRemove);
             };
-        
-        // xử lý lưu ko biết có lưu được theo dạng map ko
+
+            // xử lý lưu ko biết có lưu được theo dạng map ko
             lessonForm.addEventListener("submit", function (event) {
               event.preventDefault();
-        
+
               const formData = new FormData(lessonForm);
               const lessonData = {
                 questions: formData.getAll("question[]"),
                 romajis: formData.getAll("romaji[]"),
                 answers: formData.getAll("answer[]")
               };
-        
-              console.log("Lesson Data:", lessonData); 
+
+              console.log("Lesson Data:", lessonData);
               alert("Lesson saved successfully!");
             });
           });
         </script>
-        
-        
-    </div>
+
+
+      </div>
 
 
 

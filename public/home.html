@@ -276,7 +276,7 @@
         }
     </script>
     <script>
-        // api phiên âm
+        // api phiên âm thay cía này đi đừng xài
         document.addEventListener("DOMContentLoaded", function () {
             const pronounceBtn = document.getElementById("pronounce-btn");
             const kanjiText = "いえ";
@@ -288,7 +288,7 @@
                     msg.lang = "ja-JP";
                     window.speechSynthesis.speak(msg);
                 } else {
-                    alert("Trình duyệt của bạn không hỗ trợ tính năng phát âm.");
+                    alert("");
                 }
             });
         });
