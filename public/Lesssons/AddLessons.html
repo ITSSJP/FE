@@ -266,15 +266,59 @@
         <form id="lessonForm">
             <div id="lessonItems" class="mb-3">
                 <div class="lesson-item d-flex align-items-center">
-                    <input type="text" class="form-control me-2" name="word[]" placeholder="Japanese Word (例: 猫)" required />
-                    <input type="text" class="form-control me-2" name="reading[]" placeholder="Reading (例: ねこ)" required />
-                    <input type="text" class="form-control me-2" name="meaning[]" placeholder="Meaning (例: Cat)" required />
+                    <input type="text" class="form-control me-2" name="question[]" placeholder="Japanese Question (例: 猫)" required />
+                    <input type="text" class="form-control me-2" name="romaji[]" placeholder="Romaji (例: ねこ)" required />
+                    <input type="text" class="form-control me-2" name="answer[]" placeholder="Answer (例: Cat)" required />
                     <button type="button" class="btn btn-danger" onclick="removeItem(this)">Remove</button>
                 </div>
             </div>
             <button type="button" class="add-button btn btn-success">Add Another Term</button>
             <button type="submit" class="submit-button btn btn-primary">Save Lesson</button>
         </form>
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            const lessonForm = document.getElementById("lessonForm");
+            const lessonItems = document.getElementById("lessonItems");
+            const addButton = document.querySelector(".add-button");
+        
+//add từ 
+            addButton.addEventListener("click", function () {
+              const newItem = document.createElement("div");
+              newItem.className = "lesson-item d-flex align-items-center";
+        
+              newItem.innerHTML = `
+                <input type="text" class="form-control me-2" name="question[]" placeholder="Japanese Question (\u4F8B: 猫)" required />
+                <input type="text" class="form-control me-2" name="romaji[]" placeholder="Romaji (\u4F8B: ねこ)" required />
+                <input type="text" class="form-control me-2" name="answer[]" placeholder="Answer (\u4F8B: Cat)" required />
+                <button type="button" class="btn btn-danger" onclick="removeItem(this)">Remove</button>
+              `;
+        
+              lessonItems.appendChild(newItem);
+            });
+        
+            window.removeItem = function (button) {
+              const itemToRemove = button.parentElement;
+              lessonItems.removeChild(itemToRemove);
+            };
+        
+        // xử lý lưu ko biết có lưu được theo dạng map ko
+            lessonForm.addEventListener("submit", function (event) {
+              event.preventDefault();
+        
+              const formData = new FormData(lessonForm);
+              const lessonData = {
+                questions: formData.getAll("question[]"),
+                romajis: formData.getAll("romaji[]"),
+                answers: formData.getAll("answer[]")
+              };
+        
+              console.log("Lesson Data:", lessonData); 
+              alert("Lesson saved successfully!");
+            });
+          });
+        </script>
+        
+        
     </div>
 
 
